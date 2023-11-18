@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0dywxpgvx5kg"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_dbfli"]
+[ext_resource type="Texture2D" uid="uid://wpc5kuykfgte" path="res://1/Walk.png" id="2_mrshl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfhwo"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ub2w6"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa457"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4x05"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds06y"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w03v"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j6ri"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xmoy"]
+atlas = ExtResource("2_mrshl")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qbh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfhwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ub2w6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa457")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4x05")
+}],
+"loop": true,
+"name": &"up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds06y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w03v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j6ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xmoy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yja60"]
+radius = 25.0
+height = 155.0
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_dbfli")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_4qbh5")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(1.08763, 0.442047)
+shape = SubResource("CapsuleShape2D_yja60")
