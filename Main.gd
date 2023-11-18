@@ -3,15 +3,6 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 var tetherDistance = 300
-	
-func _process(delta):
-	var distance = $Player.position.distance_to($Player2.position)
-	if(distance>tetherDistance):
-		$Player.tether($Player2.position)
-		$Player2.tether($Player.position)
-	else:
-		$Player.untether()
-		$Player2.untether()
 
 func game_over():
 	$ScoreTimer.stop()
