@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cagrkxnmetwmq"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_313w4"]
+[ext_resource type="Texture2D" uid="uid://f3emdc58qs2l" path="res://art/enemyFlyingAlt_1.png" id="2_i3awj"]
+[ext_resource type="Texture2D" uid="uid://b4cym1jgem8n5" path="res://art/enemyFlyingAlt_2.png" id="3_w6s1d"]
+[ext_resource type="Texture2D" uid="uid://cx3xruwjgccf1" path="res://art/enemySwimming_1.png" id="4_qh8v6"]
+[ext_resource type="Texture2D" uid="uid://d3o12eaa3eyxk" path="res://art/enemySwimming_2.png" id="5_r3ka5"]
+[ext_resource type="Texture2D" uid="uid://cwq2ulvqe2tkn" path="res://art/enemyWalking_1.png" id="6_1sna0"]
+[ext_resource type="Texture2D" uid="uid://bxjlcfyveb8m4" path="res://art/enemyWalking_2.png" id="7_5ei18"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjipf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3awj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w6s1d")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qh8v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r3ka5")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1sna0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5ei18")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dp12d"]
+
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_313w4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_xjipf")
+animation = &"fly"
+frame_progress = 0.622427
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3.15, 3.15)
+shape = SubResource("CapsuleShape2D_dp12d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
