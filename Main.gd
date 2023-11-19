@@ -63,4 +63,5 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	$Ocean.createSplash(randf_range(0.0, 40.0),10)
 

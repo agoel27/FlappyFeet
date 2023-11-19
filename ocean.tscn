@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://deb121uxxw0vt"]
+
+[ext_resource type="Script" path="res://Scenes/ocean.gd" id="1_dh560"]
+
+[node name="Ocean" type="Node2D"]
+position = Vector2(-1, -1)
+script = ExtResource("1_dh560")
+
+[node name="Water" type="Polygon2D" parent="."]
+color = Color(0.105882, 0.333333, 0.992157, 1)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcihg4a2kpcny"]
+
+[ext_resource type="Texture2D" uid="uid://715xqyv5bu6i" path="res://Assets/joint.png" id="1_7yxe8"]
+[ext_resource type="Script" path="res://Scenes/water_spring.gd" id="1_pntda"]
+
+[node name="Water Spring" type="Node2D"]
+script = ExtResource("1_pntda")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7yxe8")
