@@ -11,6 +11,8 @@ func game_over():
 	$HUD.show_game_over()
 	$Music.stop()
 	$DeathSound.play()
+	$Player.hide_body()
+	$Player2.hide_body()
 
 func single_player():
 	$Player2.hide_body()
