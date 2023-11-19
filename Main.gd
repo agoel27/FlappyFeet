@@ -3,6 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 var tetherDistance = 300
+var multibool = false
 
 func game_over():
 	$ScoreTimer.stop()
@@ -11,10 +12,17 @@ func game_over():
 	$Music.stop()
 	$DeathSound.play()
 
+func single_player():
+	$Player2.hide_body()
+	multibool = false
+	
+func multi_player():
+	multibool = true
+
 func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
-	$Player2.start($StartPosition.position)
+	if(multibool): $Player2.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
@@ -53,3 +61,4 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
